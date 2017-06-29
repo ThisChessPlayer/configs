@@ -5,7 +5,7 @@
 /* #undef CLOSEDIR_VOID */
 
 /* Copyright message. */
-#define COPYRIGHT "(C) 2004-2016 Hisham Muhammad"
+#define COPYRIGHT "(C) 2004-2017 Hisham Muhammad"
 
 /* Define if ancient vserver support enabled. */
 /* #undef HAVE_ANCIENT_VSERVER */
@@ -48,7 +48,7 @@
 #define HAVE_LIBNCURSESW 1
 
 /* Define if Linux sched_setaffinity and sched_getaffinity are to be used. */
-#define HAVE_LINUX_AFFINITY 1
+/* #undef HAVE_LINUX_AFFINITY */
 
 /* Define to 1 if you have the `memmove' function. */
 #define HAVE_MEMMOVE 1
@@ -57,13 +57,13 @@
 #define HAVE_MEMORY_H 1
 
 /* Define to 1 if you have the <ncursesw/curses.h> header file. */
-#define HAVE_NCURSESW_CURSES_H 1
+/* #undef HAVE_NCURSESW_CURSES_H */
 
 /* Define to 1 if you have the <ncurses/curses.h> header file. */
 /* #undef HAVE_NCURSES_CURSES_H */
 
 /* Define to 1 if you have the <ncurses.h> header file. */
-/* #undef HAVE_NCURSES_H */
+#define HAVE_NCURSES_H 1
 
 /* Define to 1 if you have the <ncurses/ncurses.h> header file. */
 /* #undef HAVE_NCURSES_NCURSES_H */
@@ -139,7 +139,7 @@
 
 /* Define to 1 if `lstat' dereferences a symlink specified with a trailing
    slash. */
-#define LSTAT_FOLLOWS_SLASHED_SYMLINK 1
+/* #undef LSTAT_FOLLOWS_SLASHED_SYMLINK */
 
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
    */

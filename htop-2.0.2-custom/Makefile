@@ -77,12 +77,12 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-build_triplet = armv7l-unknown-linux-gnueabihf
-host_triplet = armv7l-unknown-linux-gnueabihf
-target_triplet = armv7l-unknown-linux-gnueabihf
+build_triplet = x86_64-apple-darwin16.4.0
+host_triplet = x86_64-apple-darwin16.4.0
+target_triplet = x86_64-apple-darwin16.4.0
 bin_PROGRAMS = htop$(EXEEXT)
-am__append_1 = -rdynamic 
-#am__append_2 = -framework IOKit -framework CoreFoundation
+#am__append_1 = -rdynamic 
+am__append_2 = -framework IOKit -framework CoreFoundation
 subdir = .
 DIST_COMMON = INSTALL NEWS README AUTHORS ChangeLog \
 	$(srcdir)/Makefile.in $(srcdir)/Makefile.am \
@@ -189,23 +189,23 @@ am__dirstamp = $(am__leading_dot)dirstamp
 ##	openbsd/htop-OpenBSDProcess.$(OBJEXT) \
 ##	openbsd/htop-OpenBSDCRT.$(OBJEXT) \
 ##	openbsd/htop-Battery.$(OBJEXT)
-am__objects_3 = linux/htop-Platform.$(OBJEXT) \
-	linux/htop-IOPriorityPanel.$(OBJEXT) \
-	linux/htop-IOPriority.$(OBJEXT) \
-	linux/htop-LinuxProcess.$(OBJEXT) \
-	linux/htop-LinuxProcessList.$(OBJEXT) \
-	linux/htop-LinuxCRT.$(OBJEXT) \
-	linux/htop-Battery.$(OBJEXT)
-#am__objects_3 = freebsd/htop-Platform.$(OBJEXT) \
-#	freebsd/htop-FreeBSDProcessList.$(OBJEXT) \
-#	freebsd/htop-FreeBSDProcess.$(OBJEXT) \
-#	freebsd/htop-FreeBSDCRT.$(OBJEXT) \
-#	freebsd/htop-Battery.$(OBJEXT)
-#am__objects_3 = darwin/htop-Platform.$(OBJEXT) \
-#	darwin/htop-DarwinProcess.$(OBJEXT) \
-#	darwin/htop-DarwinProcessList.$(OBJEXT) \
-#	darwin/htop-DarwinCRT.$(OBJEXT) \
-#	darwin/htop-Battery.$(OBJEXT)
+##am__objects_3 = linux/htop-Platform.$(OBJEXT) \
+##	linux/htop-IOPriorityPanel.$(OBJEXT) \
+##	linux/htop-IOPriority.$(OBJEXT) \
+##	linux/htop-LinuxProcess.$(OBJEXT) \
+##	linux/htop-LinuxProcessList.$(OBJEXT) \
+##	linux/htop-LinuxCRT.$(OBJEXT) \
+##	linux/htop-Battery.$(OBJEXT)
+##am__objects_3 = freebsd/htop-Platform.$(OBJEXT) \
+##	freebsd/htop-FreeBSDProcessList.$(OBJEXT) \
+##	freebsd/htop-FreeBSDProcess.$(OBJEXT) \
+##	freebsd/htop-FreeBSDCRT.$(OBJEXT) \
+##	freebsd/htop-Battery.$(OBJEXT)
+am__objects_3 = darwin/htop-Platform.$(OBJEXT) \
+	darwin/htop-DarwinProcess.$(OBJEXT) \
+	darwin/htop-DarwinProcessList.$(OBJEXT) \
+	darwin/htop-DarwinCRT.$(OBJEXT) \
+	darwin/htop-Battery.$(OBJEXT)
 am_htop_OBJECTS = $(am__objects_1) $(am__objects_1) $(am__objects_2) \
 	$(am__objects_3)
 htop_OBJECTS = $(am_htop_OBJECTS)
@@ -328,14 +328,14 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/pi/htop-2.0.2/missing aclocal-1.14
+ACLOCAL = ${SHELL} /Users/jm186138/projects/utils-configs/htop-2.0.2-custom/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} /home/pi/htop-2.0.2/missing autoconf
-AUTOHEADER = ${SHELL} /home/pi/htop-2.0.2/missing autoheader
-AUTOMAKE = ${SHELL} /home/pi/htop-2.0.2/missing automake-1.14
-AWK = mawk
+AUTOCONF = ${SHELL} /Users/jm186138/projects/utils-configs/htop-2.0.2-custom/missing autoconf
+AUTOHEADER = ${SHELL} /Users/jm186138/projects/utils-configs/htop-2.0.2-custom/missing autoheader
+AUTOMAKE = ${SHELL} /Users/jm186138/projects/utils-configs/htop-2.0.2-custom/missing automake-1.14
+AWK = awk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
@@ -345,37 +345,37 @@ CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
 DLLTOOL = false
-DSYMUTIL = 
+DSYMUTIL = dsymutil
 DUMPBIN = 
-ECHO_C = 
-ECHO_N = -n
+ECHO_C = \c
+ECHO_N = 
 ECHO_T = 
-EGREP = /bin/grep -E
+EGREP = /usr/bin/grep -E
 EXEEXT = 
-FGREP = /bin/grep -F
-GREP = /bin/grep
+FGREP = /usr/bin/grep -F
+GREP = /usr/bin/grep
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
-LD = /usr/bin/ld
+LD = /Library/Developer/CommandLineTools/usr/bin/ld
 LDFLAGS = 
-LIBOBJS = 
-LIBS = -lncursesw -ltinfo -lm  
+LIBOBJS =  ${LIBOBJDIR}lstat$U.o
+LIBS = -lncurses -lm  
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
-LIPO = 
+LIPO = lipo
 LN_S = ln -s
-LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/pi/htop-2.0.2/missing makeinfo
+LTLIBOBJS =  ${LIBOBJDIR}lstat$U.lo
+MAKEINFO = ${SHELL} /Users/jm186138/projects/utils-configs/htop-2.0.2-custom/missing makeinfo
 MANIFEST_TOOL = :
-MKDIR_P = /bin/mkdir -p
+MKDIR_P = ./install-sh -c -d
 NM = /usr/bin/nm -B
-NMEDIT = 
+NMEDIT = nmedit
 OBJDUMP = objdump
 OBJEXT = o
-OTOOL = 
-OTOOL64 = 
+OTOOL = otool
+OTOOL64 = :
 PACKAGE = htop
 PACKAGE_BUGREPORT = hisham@gobolinux.org
 PACKAGE_NAME = htop
@@ -385,15 +385,15 @@ PACKAGE_URL =
 PACKAGE_VERSION = 2.0.2
 PATH_SEPARATOR = :
 RANLIB = ranlib
-SED = /bin/sed
+SED = /usr/bin/sed
 SET_MAKE = 
-SHELL = /bin/bash
+SHELL = /bin/sh
 STRIP = strip
 VERSION = 2.0.2
-abs_builddir = /home/pi/htop-2.0.2
-abs_srcdir = /home/pi/htop-2.0.2
-abs_top_builddir = /home/pi/htop-2.0.2
-abs_top_srcdir = /home/pi/htop-2.0.2
+abs_builddir = /Users/jm186138/projects/utils-configs/htop-2.0.2-custom
+abs_srcdir = /Users/jm186138/projects/utils-configs/htop-2.0.2-custom
+abs_top_builddir = /Users/jm186138/projects/utils-configs/htop-2.0.2-custom
+abs_top_srcdir = /Users/jm186138/projects/utils-configs/htop-2.0.2-custom
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -403,33 +403,33 @@ am__quote =
 am__tar = $${TAR-tar} chof - "$$tardir"
 am__untar = $${TAR-tar} xf -
 bindir = ${exec_prefix}/bin
-build = armv7l-unknown-linux-gnueabihf
+build = x86_64-apple-darwin16.4.0
 build_alias = 
-build_cpu = armv7l
-build_os = linux-gnueabihf
-build_vendor = unknown
+build_cpu = x86_64
+build_os = darwin16.4.0
+build_vendor = apple
 builddir = .
 datadir = ${datarootdir}
 datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
 exec_prefix = ${prefix}
-host = armv7l-unknown-linux-gnueabihf
+host = x86_64-apple-darwin16.4.0
 host_alias = 
-host_cpu = armv7l
-host_os = linux-gnueabihf
-host_vendor = unknown
+host_cpu = x86_64
+host_os = darwin16.4.0
+host_vendor = apple
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/pi/htop-2.0.2/install-sh
+install_sh = ${SHELL} /Users/jm186138/projects/utils-configs/htop-2.0.2-custom/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
 localstatedir = ${prefix}/var
 mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
-my_htop_platform = linux
+my_htop_platform = darwin
 oldincludedir = /usr/include
 pdfdir = ${docdir}
 prefix = /usr/local
@@ -439,11 +439,11 @@ sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
 srcdir = .
 sysconfdir = ${prefix}/etc
-target = armv7l-unknown-linux-gnueabihf
+target = x86_64-apple-darwin16.4.0
 target_alias = 
-target_cpu = armv7l
-target_os = linux-gnueabihf
-target_vendor = unknown
+target_cpu = x86_64
+target_os = darwin16.4.0
+target_vendor = apple
 top_build_prefix = 
 top_builddir = .
 top_srcdir = .
@@ -483,14 +483,14 @@ TasksMeter.h UptimeMeter.h TraceScreen.h UsersTable.h Vector.h Process.h \
 AffinityPanel.h HostnameMeter.h OpenFilesScreen.h Affinity.h IncSet.h Action.h \
 EnvScreen.h InfoScreen.h XAlloc.h
 
-#myhtopplatsources = darwin/Platform.c darwin/DarwinProcess.c \
-#darwin/DarwinProcessList.c darwin/DarwinCRT.c darwin/Battery.c
+myhtopplatsources = darwin/Platform.c darwin/DarwinProcess.c \
+darwin/DarwinProcessList.c darwin/DarwinCRT.c darwin/Battery.c
 
 #myhtopplatsources = freebsd/Platform.c freebsd/FreeBSDProcessList.c \
 #freebsd/FreeBSDProcess.c freebsd/FreeBSDCRT.c freebsd/Battery.c
 
-myhtopplatsources = linux/Platform.c linux/IOPriorityPanel.c linux/IOPriority.c \
-linux/LinuxProcess.c linux/LinuxProcessList.c linux/LinuxCRT.c linux/Battery.c
+#myhtopplatsources = linux/Platform.c linux/IOPriorityPanel.c linux/IOPriority.c \
+#linux/LinuxProcess.c linux/LinuxProcessList.c linux/LinuxCRT.c linux/Battery.c
 
 #myhtopplatsources = openbsd/Platform.c openbsd/OpenBSDProcessList.c \
 #openbsd/OpenBSDProcess.c openbsd/OpenBSDCRT.c openbsd/Battery.c
@@ -499,14 +499,14 @@ linux/LinuxProcess.c linux/LinuxProcessList.c linux/LinuxCRT.c linux/Battery.c
 #unsupported/UnsupportedProcess.c unsupported/UnsupportedProcessList.c \
 #unsupported/UnsupportedCRT.c unsupported/Battery.c
 
-#myhtopplatheaders = darwin/Platform.h darwin/DarwinProcess.h \
-#darwin/DarwinProcessList.h darwin/DarwinCRT.h darwin/Battery.h
+myhtopplatheaders = darwin/Platform.h darwin/DarwinProcess.h \
+darwin/DarwinProcessList.h darwin/DarwinCRT.h darwin/Battery.h
 
 #myhtopplatheaders = freebsd/Platform.h freebsd/FreeBSDProcessList.h \
 #freebsd/FreeBSDProcess.h freebsd/FreeBSDCRT.h freebsd/Battery.h
 
-myhtopplatheaders = linux/Platform.h linux/IOPriorityPanel.h linux/IOPriority.h \
-linux/LinuxProcess.h linux/LinuxProcessList.h linux/LinuxCRT.h linux/Battery.h
+#myhtopplatheaders = linux/Platform.h linux/IOPriorityPanel.h linux/IOPriority.h \
+#linux/LinuxProcess.h linux/LinuxProcessList.h linux/LinuxCRT.h linux/Battery.h
 
 #myhtopplatheaders = openbsd/Platform.h openbsd/OpenBSDProcessList.h \
 #openbsd/OpenBSDProcess.h openbsd/OpenBSDCRT.h openbsd/Battery.h
