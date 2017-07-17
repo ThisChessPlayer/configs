@@ -26,6 +26,7 @@ set wildmenu                       " visual autocomplete for command menu
 set lazyredraw                     " redraws only when needed
 set columns=84                     " causes vim incompatability
 "setlocal textwidth=80             " used for text wrapping
+set gfn=Monospace\ 8
 
 "[Searching]------------------------------------------------------------------"
 set incsearch                      " searches as characters are entered
@@ -57,14 +58,16 @@ map <F11> <Esc>setlocal nospell<CR>
 "[Custom Functions]-----------------------------------------------------------"
 function PyFileHead()
 	let s:line=line(".")
-	call setline(s:line,    "/*---------------------------------------------------------------------------*")
+	call setline(s:line,    "'''*-----------------------------------------------------------------------*---")
 	call append (s:line,    "                                                         Author: Jason Ma")
 	call append (s:line+1,  "                                                         Date  : " .strftime("%b %d %Y"))
-	call append (s:line+2,  "   File Name  : " .expand("%"))
-	call append (s:line+3,  "   Description: TODO")
-	call append (s:line+4,  " *---------------------------------------------------------------------------*/")
-	call append (s:line+5,  "")
-	call append (s:line+6,  "")
+	call append (s:line+2,  "                                      TODO")
+	call append (s:line+3,  "")
+	call append (s:line+4,  "   File Name  : " .expand("%"))
+	call append (s:line+5,  "   Description: TODO")
+	call append (s:line+6,  "---*-----------------------------------------------------------------------*'''")
+	call append (s:line+7,  "")
+	call append (s:line+8,  "")
 	unlet s:line
 endfunction
 
@@ -78,48 +81,38 @@ function CFileHead()
 	call append (s:line+4,  "")
 	call append (s:line+5,  " File Name:       " .expand("%"))
 	call append (s:line+6,  " Description:     TODO")
-	call append (s:line+7,  " Sources of help: TODO")
-	call append (s:line+8,  " *****************************************************************************/")
+	call append (s:line+7,  " *****************************************************************************/")
+	call append (s:line+8,  "")
 	call append (s:line+9,  "")
-	call append (s:line+10, "")
 	unlet s:line
 endfunction
 
 function CFuncHead()
 let s:line=line(".")
 	call setline(s:line,    " /********************************************************************")
-	call append (s:line,    " | Routine Name: TODO")
-	call append (s:line+1,  " | File:         " .expand("%"))
-	call append (s:line+2,  " | ")
-	call append (s:line+3,  " | Description: TODO")
-	call append (s:line+4,  " | ")
-	call append (s:line+5,  " | Parameter Descriptions:")
-	call append (s:line+6,  " | name               description")
-	call append (s:line+7,  " | ------------------ -----------------------------------------------")
-	call append (s:line+8,  " | TODO")
+	call append (s:line,    "   Routine Name: TODO")
+	call append (s:line+1,  "   File:         " .expand("%"))
+	call append (s:line+2,  "   ")
+	call append (s:line+3,  "   Description: TODO")
+	call append (s:line+4,  "   ")
+	call append (s:line+5,  "   Parameter Descriptions:")
+	call append (s:line+6,  "   name               description")
+	call append (s:line+7,  "   ------------------ -----------------------------------------------")
+	call append (s:line+8,  "   TODO")
 	call append (s:line+9,  " ********************************************************************/")
 	unlet s:line
 endfunction
 
-function AsFuncHead()
+function PyFuncHead()
 let s:line=line(".")
-	call setline(s:line,     " /********************************************************************")
-	call append (s:line,     " | Routine Name: TODO")
-	call append (s:line+1 ,  " | File:         " .expand("%"))
-	call append (s:line+2 ,  " | ")
-	call append (s:line+3 ,  " | Description: TODO")
-	call append (s:line+4 ,  " | ")
-	call append (s:line+5 ,  " | Parameter Descriptions:")
-	call append (s:line+6 ,  " | name               description")
-	call append (s:line+7 ,  " | ------------------ -----------------------------------------------")
-	call append (s:line+8 ,  " | TODO")
-	call append (s:line+9 ,  " | Registers Used:")
-	call append (s:line+10,  " | TODO")
-	call append (s:line+11,  " ********************************************************************/")
+	call setline(s:line,     "'''[]--------------------------------------------------------------------------")
+	call append (s:line,     "  TODO")
+	call append (s:line+1,   "----------------------------------------------------------------------------'''")
 	unlet s:line
 endfunction
 
-imap <F2> <ESC>mz:execute AsFuncHead()<CR>`z4jA
-imap <F3> <ESC>mz:execute CFuncHead()<CR>`z4jA
+imap <F2> <ESC>mz:execute PyFileHead()<CR>`z8jA
+imap <F3> <ESC>mz:execute PyFuncHead()<CR>`z1jA
 imap <F4> <ESC>mz:execute CFileHead()<CR>`z10jA
-imap <F5> <ESC>mz:execute PyFileHead()<CR>`z6jA
+imap <F5> <ESC>mz:execute CFuncHead()<CR>`z4jA
+
