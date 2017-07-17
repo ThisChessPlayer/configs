@@ -1,6 +1,7 @@
-"**********************************"
-" Jason Ma .VIMRC                  "
-"**********************************"
+"----------------------------------"
+" Jason Ma .VIMRC 07-17-17         "
+"----------------------------------"
+
 "[General]--------------------------------------------------------------------"
 set nocompatible                   " get rid of strict vi compatibility!
 set autoindent                     " autoindent on
@@ -26,7 +27,7 @@ set wildmenu                       " visual autocomplete for command menu
 set lazyredraw                     " redraws only when needed
 set columns=84                     " causes vim incompatability
 "setlocal textwidth=80             " used for text wrapping
-set gfn=Monospace\ 8
+set gfn=Monospace\ 8               " set font and font size
 
 "[Searching]------------------------------------------------------------------"
 set incsearch                      " searches as characters are entered
@@ -105,7 +106,7 @@ endfunction
 
 function PyFuncHead()
 let s:line=line(".")
-	call setline(s:line,     "'''[]--------------------------------------------------------------------------")
+	call setline(s:line,     "'''[TODO]----------------------------------------------------------------------")
 	call append (s:line,     "  TODO")
 	call append (s:line+1,   "----------------------------------------------------------------------------'''")
 	unlet s:line
