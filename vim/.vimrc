@@ -41,9 +41,9 @@ set foldnestmax=10                 " 10 nested fold max
 set foldmethod=indent              " folds based on indent level
 
 "[Tabs]-----------------------------------------------------------------------"
-au BufRead,BufNewFile *.{c,h,cpp,hpp,java,py} set expandtab
-au BufRead,BufNewFile *.{c,h,cpp,hpp,java,py} set shiftwidth=2
-au BufRead,BufNewFile *.{c,h,cpp,hpp,java,py} set tabstop=2
+au BufRead,BufNewFile *.{c,h,cpp,hpp,java,py,js} set expandtab
+au BufRead,BufNewFile *.{c,h,cpp,hpp,java,py,js} set shiftwidth=2
+au BufRead,BufNewFile *.{c,h,cpp,hpp,java,py,js} set tabstop=2
 au BufRead,BufNewFile *.s set noexpandtab
 au BufRead,BufNewFile *.s set shiftwidth=8
 au BufRead,BufNewFile *.s set tabstop=8
