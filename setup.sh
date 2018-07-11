@@ -12,7 +12,7 @@ sudo apt-get install -y build-essential vim-gnome tmux libncurses5-dev libncurse
 echo -e "${YELLOW}[${CYAN}Setup${YELLOW}] ${WHITE}Setting up directories"
 mkdir ~/projects
 mkdir ~/projects/workspace
-mkdir ~/prjoects/scripts
+mkdir ~/projects/scripts
 mkdir ~/.vim
 mkdir ~/.vim/colors
 
@@ -42,7 +42,12 @@ make
 sudo make install
 cd ..
 
+echo -e "${YELLOW}[${CYAN}Git${YELLOW}] ${WHITE}Setting up git"
+git config --global user.email "jasonma5501@gmail.com"
+git config --global user.name "Jason Ma"
+
 echo -e "${YELLOW}[${CYAN}Hostname${YELLOW}] ${WHITE}Setting up hostname"
 sudo sed -i -e 's/raspberrypi/jampi/g' /etc/hostname
 sudo sed -i -e 's/raspberrypi/jampi/g' /etc/hosts
 
+source ~/.bashrc
