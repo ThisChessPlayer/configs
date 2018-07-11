@@ -130,3 +130,5 @@ LS_COLORS=$LS_COLORS:'di=0;33:''fi=0;32' ; export LS_COLORS
 if [[ $TERM == xterm ]]; then
 	TERM=xterm-256color
 fi
+
+export PATH=$PATH:~/projects/scripts

@@ -7,11 +7,9 @@ if [[ -z "$TMUX" ]]; then
 	tmux split-window -t 1 -h -l 85
 	tmux split-window -t 0 -v
 	tmux split-window -t 0 -v
-	tmux split-window -t 3 -v
 
 	#resize panes
-	tmux resize-pane -t 0 -y 14
-	tmux resize-pane -t 4 -y 4
+	tmux resize-pane -t 0 -y 5
 	#tmux resize-pane -t 3 -y 4
 
 	#tmux resize-pane -t 0 -L 15
@@ -26,8 +24,7 @@ if [[ -z "$TMUX" ]]; then
 	#tmux resize-pane -t 3 -D 2
 	
 	#start programs
-	tmux send-keys -t 0 calcurse enter enter
-	tmux send-keys -t 4 htop enter
+	tmux send-keys -t 0 htop enter enter
 	tmux send-keys -t 3 ls enter
 
 	#attach tmux session
