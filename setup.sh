@@ -49,5 +49,6 @@ git config --global user.name "Jason Ma"
 echo -e "${YELLOW}[${CYAN}Hostname${YELLOW}] ${WHITE}Setting up hostname"
 sudo sed -i -e 's/raspberrypi/jampi/g' /etc/hostname
 sudo sed -i -e 's/raspberrypi/jampi/g' /etc/hosts
+sudo hostname jampi
 
 source ~/.bashrc
