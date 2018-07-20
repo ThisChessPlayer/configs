@@ -24,6 +24,23 @@ htop-custom:
 
 .bashrc / .bash_profile for OSX and Linux environments
 --------------------------------------------------------------------------------
-Auto installation script coming soon!
+Using auto installation script:
+
+cd utils-configs
+source setup.sh
+
+This installs vim/gvim, tmux, htop, and .bashrc files, changes hostname to 
+jampi, and sets up the usual workspace.
+
+Before running, it is recommended to set up ssh keys and git. 
+
+sudo apt-get install git
+
+ssh-keygen -t rsa -b 4096 -C "jasonma5501@gmail.com"
+Copy github key from .ssh/id_ras.pub to github console
+mkdir ~/projects
+mkdir ~/projects/workspace
+cd ~/projects
+git clone git@github.com:jmagine/utils-configs.git
 --------------------------------------------------------------------------------
 
