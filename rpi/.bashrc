@@ -8,8 +8,6 @@ case $- in
       *) return;;
 esac
 
-export BLADERF_SEARCH_DIR=/home/pi/projects
-
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -125,7 +123,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-LS_COLORS=$LS_COLORS:'di=0;33:''fi=0;32' ; export LS_COLORS
+LS_COLORS=$LS_COLORS:'di=0;33:fi=0;37:ex=0;32:' ; export LS_COLORS
 
 if [[ $TERM == xterm ]]; then
 	TERM=xterm-256color
